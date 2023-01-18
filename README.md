@@ -47,42 +47,57 @@ If the control input changes to AB = 10, then all the gates are restricted excep
  
  
 ### Procedure
-/* write all the steps invloved */
-
-
-
+1. Create a project with required entities.
+2. Create a module along with respective file name for both MUltiplexer and De-multiplexer.
+3. Run the module and get the respective RTL outputs.
+4. Create university program(VWF) for getting timing diagram.
+5. Give the respective inputs for timing diagram and obtain the results.
 ### PROGRAM 
-/*
-Program for flipflops  and verify its truth table in quartus using Verilog programming.
-Developed by: 
-RegisterNumber:  
-*/
+~~~py
+## Multiplexer
 
+module mux (i0,i1,i2,i3,s0,s1,y);
+input i0,i1,i2,i3,s0,s1;
+output y;
+not(sbar,s0);
+nor(s1bar,s1);
+wire p,q,r,s,sbar,s1bar;
+and(p,sbar,s1bar,i0);
+and(q,sbar,s1,i1);
+and(r,s0,s1bar,i2);
+and(s,s0,s1,i3);
+or(y,p,q,r,s);
+endmodule
+~~~
 
-
-
-
-
+~~~py
+## De-multiplexer
+module de_mux(y0,y1,y2,y3,s0,s1,i);
+input s0,s1,i;
+output y0,y1,y2,y3;
+wire sbar,s1bar;
+nor(sbar,s0);
+nor(s1bar,s1);
+and(y0,i,sbar,s1);
+and(y1,i,sbar,s1bar);
+and(y2,i,s0,s1bar);
+and(y3,i,s0,s1);
+endmodule
+~~~
 ### RTL LOGIC  
+![multiplixer](/mux.png)
 
-
-
-
-
-
-
+## de-multiplexer
+![de-mux](/de_mux.png)
 
 ### TIMING DIGRAMS  
+![mux](/mux%20wave.jpeg)
 
-
-
-
+## de_mux
+![demux](/de_mux_wave.png)
 
 ### TRUTH TABLE 
-
-
-
-
-
-
+![mux truthtable](/mux-truth.png)
+![demux truthtable](/demux_truth.png)
 ### RESULTS 
+Thus the MUltiplexer and De-multiplexer are designed and verified using quartus software.
