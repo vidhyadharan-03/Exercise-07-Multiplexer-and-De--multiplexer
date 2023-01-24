@@ -53,6 +53,11 @@ If the control input changes to AB = 10, then all the gates are restricted excep
 4. Create university program(VWF) for getting timing diagram.
 5. Give the respective inputs for timing diagram and obtain the results.
 ### PROGRAM 
+Program for flipflops and verify its truth table in quartus using Verilog programming.
+
+Developed by: R.Vidhyadharan
+
+RegisterNumber: 22008663
 ~~~py
 ## Multiplexer
 
